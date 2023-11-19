@@ -8,7 +8,7 @@ import { SlDislike } from "react-icons/sl";
 
 function App() {
   const [name, setName] = useState("");
-  const [click, setClick] = useState(false);
+  const [click, setClick] = useState(true);
   const [find, setFind] = useState("");
   const [file, setFile] = useState("");
   const [isLike, setisLike] = useState(false);
@@ -16,12 +16,13 @@ function App() {
 
   function setd() {
     setRender(mediaData);
-    setClick(true);
+    setClick(false);
   }
 
   function Changed(name) {
     console.log(name);
     console.log(ren);
+
     setRender(mediaData.filter((e) => e.name.includes(name)));
     if (name === "Trending")
       setRender(mediaData.filter((md) => md.trending === true));
@@ -119,36 +120,63 @@ function App() {
       </div>
       {/*body part */}
       <div className="body">
-        <div>{click || <h2>click TRI</h2>}</div>
+        <div>{!click || <h2>click TRI</h2>}</div>
         <div className="content">
-          {ren &&
-            ren.map((e) => (
-              <div className="card">
-                <img
-                  src={e.img}
-                  alt="aa"
-                  width="100%"
-                  height="90%"
-                  onClick={() => setFile(e.img)}
-                />
-                <div className="card-text">
-                  <div>{e.name}</div>
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      gap: "4px",
-                    }}
-                  >
-                    <SlLike onClick={() => ILike(e)} className="thumb" />
-                    <SlDislike onClick={() => DLike(e)} className="thumb2" />
-                    <div style={{ display: "inline", paddingLeft: "8px" }}>
-                      {e.likes}
+          {click
+            ? mediaData.map((e) => (
+                <div className="card">
+                  <img
+                    src={e.img}
+                    alt="aa"
+                    width="100%"
+                    height="90%"
+                    onClick={() => setFile(e.img)}
+                  />
+                  <div className="card-text">
+                    <div>{e.name}</div>
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        gap: "4px",
+                      }}
+                    >
+                      <SlLike onClick={() => ILike(e)} className="thumb" />
+                      <SlDislike onClick={() => DLike(e)} className="thumb2" />
+                      <div style={{ display: "inline", paddingLeft: "8px" }}>
+                        {e.likes}
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))
+            : ren.map((e) => (
+                <div className="card">
+                  <img
+                    src={e.img}
+                    alt="aa"
+                    width="100%"
+                    height="90%"
+                    onClick={() => setFile(e.img)}
+                  />
+                  <div className="card-text">
+                    <div>{e.name}</div>
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        gap: "4px",
+                      }}
+                    >
+                      <SlLike onClick={() => ILike(e)} className="thumb" />
+                      <SlDislike onClick={() => DLike(e)} className="thumb2" />
+                      <div style={{ display: "inline", paddingLeft: "8px" }}>
+                        {e.likes}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
         </div>
       </div>
     </div>

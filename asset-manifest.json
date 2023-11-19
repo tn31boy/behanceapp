@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/behanceapp/static/css/main.a70749c8.css",
-    "main.js": "/behanceapp/static/js/main.f84b5524.js",
+    "main.js": "/behanceapp/static/js/main.897be051.js",
     "static/js/496.dba94bd9.chunk.js": "/behanceapp/static/js/496.dba94bd9.chunk.js",
     "index.html": "/behanceapp/index.html",
     "main.a70749c8.css.map": "/behanceapp/static/css/main.a70749c8.css.map",
-    "main.f84b5524.js.map": "/behanceapp/static/js/main.f84b5524.js.map",
+    "main.897be051.js.map": "/behanceapp/static/js/main.897be051.js.map",
     "496.dba94bd9.chunk.js.map": "/behanceapp/static/js/496.dba94bd9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a70749c8.css",
-    "static/js/main.f84b5524.js"
+    "static/js/main.897be051.js"
   ]
 }
